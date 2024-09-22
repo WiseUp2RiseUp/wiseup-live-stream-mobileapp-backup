@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/peer_container"
+    android:layout_width="100dp"
+    android:layout_height="100dp">
+
+    <org.webrtc.SurfaceViewRenderer
+        android:id="@+id/local_gl_surface_view"
+        android:layout_width="100dp"
+        android:layout_height="100dp"></org.webrtc.SurfaceViewRenderer>
+
+    <TextView
+        android:id="@+id/main_participant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:visibility="gone"
+        tools:visibility="gone" />
+</FrameLayout>
+
+

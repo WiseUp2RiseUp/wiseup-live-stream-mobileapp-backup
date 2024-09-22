@@ -1,0 +1,24 @@
+<resources>
+    <!-- WARNING: this application_server_url is not secure and is only meant for a first quick test.
+	     Anyone could access your video sessions. You should modify the application_server_url to a custom private one -->
+    <string name="application_server_url">https://wiseupconnect.wiseup.club:5000</string>
+    <string name="app_name">WiseUp</string>
+    <string name="start_button">Join</string>
+    <string name="goLive">Go Live</string>
+    <string name="controls">Join</string>
+    <string name="news">Join</string>
+    <string name="switching">Join</string>
+    <string name="ads">Join</string>
+    <string name="bottomBar">Join</string>
+    <string name="session_name">Session Name</string>
+    <string name="default_session_name">cayman-sports</string>
+    <string name="participant_name">Participant Name</string>
+    <string name="default_participant_name">User-</string>
+    <string name="hang_up">Leave session</string>
+    <string name="no_connection">COULD NOT ESTABLISH THE CONNECTION, TRY AGAIN </string>
+    <string name="no_permissions_granted">We can not give you service without your permission</string>
+    <string name="permissions_dialog_title">We need your help</string>
+    <string name="accept_permissions_dialog">GIVE PERMISSIONS!</string>
+    <string name="cancel_dialog">CANCEL</string>
+    <string name="no_internet_connection">NO INTERNET CONNECTION, PLEASE CHECK YOUR CONNECTION</string>
+</resources>

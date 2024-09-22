@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="io.openvidu.openvidu_android.activities.SessionActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="150dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/views_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:orientation="vertical"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <FrameLayout
+                    android:id="@+id/peer_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="212dp"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:id="@+id/main_participant"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorAccent" />
+
+                    <org.webrtc.SurfaceViewRenderer
+                        android:id="@+id/local_gl_surface_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|center"
+                        android:visibility="visible" />
+                </FrameLayout>
+            </LinearLayout>
+        </ScrollView>
+<!--        <WebView-->
+<!--            android:id="@+id/webView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            ></WebView>-->
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="40dp"
+        android:background="#eeeeee"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="false"
+            android:layout_centerVertical="false"
+            android:layout_marginEnd="10dp"
+            android:gravity="start"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <EditText
+                android:id="@+id/application_server_url"
+                style="@android:style/Widget.Material.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/application_server_url"
+                android:inputType="text"
+                android:text="@string/application_server_url"
+                android:visibility="gone"
+                tools:visibility="gone" />
+
+            <EditText
+                android:id="@+id/session_name"
+                style="@android:style/Widget.Material.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/session_name"
+                android:inputType="text"
+                android:text="@string/default_session_name"
+                android:visibility="gone"
+                tools:visibility="gone" />
+
+            <EditText
+                android:id="@+id/participant_name"
+                style="@android:style/Widget.Material.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/participant_name"
+                android:inputType="text"
+                android:text="@string/default_participant_name"
+                android:visibility="gone"
+                tools:visibility="gone" />
+
+            <Spinner
+                android:id="@+id/spinner1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/btn_dropdown"
+                android:spinnerMode="dropdown" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/start_finish_call"
+            style="@android:style/Widget.Material.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@id/linearLayout"
+            android:layout_marginBottom="5dp"
+            android:onClick="buttonPressed"
+            android:text="@string/start_button" />
+
+        <Button
+            android:id="@+id/go_live"
+            style="@android:style/Widget.Material.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toEndOf="@id/start_finish_call"
+            android:enabled="false"
+            android:text="@string/goLive"
+            android:visibility="visible" />
+
+
+        <CheckBox
+            android:id="@+id/usb_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/go_live"
+            android:checked="true"
+            android:text="USB CAM" />
+
+        <CheckBox
+            android:id="@+id/cam_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/usb_check"
+            android:checked="true"
+            android:text="Back Cam" />
+
+
+        <TextView
+            android:id="@+id/volTextView"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="110dp"
+            android:layout_marginLeft="5dp"
+            android:layout_height="wrap_content"
+            android:text="Volume"/>
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="200dp"
+            android:layout_marginTop="110dp"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@id/volTextView"/>
+
+        <TextView
+            android:id="@+id/selectedPersion"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="150dp"
+            android:layout_marginLeft="5dp"
+            android:layout_height="wrap_content"
+            android:text=""/>
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
